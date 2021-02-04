@@ -8,7 +8,6 @@ from certbot import interfaces
 from certbot.plugins import dns_common, dns_common_lexicon
 from lexicon.config import ConfigResolver
 from lexicon.providers import powerdns
-from requests.api import request
 
 logger = logging.getLogger(__name__)
 logging.getLogger(tldextract.__name__).setLevel(logging.WARNING)
