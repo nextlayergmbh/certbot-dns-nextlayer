@@ -1,6 +1,12 @@
 certbot-dns-nextlayer
 ============
 
+![Tests](https://github.com/nextlayergmbh/certbot-dns-nextlayer/workflows/Tests/badge.svg)
+![Upload Python Package](https://github.com/nextlayergmbh/certbot-dns-nextlayer/workflows/Upload%20Python%20Package/badge.svg)
+[![Python Version](https://img.shields.io/pypi/pyversions/certbot-dns-nextlayer)](https://pypi.org/project/certbot-dns-nextlayer/)
+[![PyPi Status](https://img.shields.io/pypi/status/certbot-dns-nextlayer)](https://pypi.org/project/certbot-dns-nextlayer/)
+[![Version](https://img.shields.io/github/v/release/nextlayergmbh/certbot-dns-nextlayer)](https://pypi.org/project/certbot-dns-nextlayer/)
+
 next layer DNS Authenticator plugin for [Certbot](https://certbot.eff.org/).
 
 This plugin is built from the ground up and follows the development style and life-cycle
