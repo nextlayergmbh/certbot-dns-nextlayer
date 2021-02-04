@@ -1,0 +1,6 @@
+acme>=0.31.0
+certbot>=0.31.0
+setuptools
+zope.interface
+dns-lexicon
+tldextract>=3.1.0
