@@ -57,7 +57,7 @@ certbot certonly --authenticator dns-nextlayer --dns-nextlayer-credentials=~/nld
 
 ### Zone detection method
 
-We've added the configuration parameter `--dns-nextlayer-resolve-method` to select the way our certbot plugin determines the correct zone to add the record to. Currently there are 3 options you can choose from.
+We've added the configuration parameter `--dns-nextlayer-method` to select the way our certbot plugin determines the correct zone to add the record to. Currently there are 3 options you can choose from.
 
 #### `intelligent`
 
