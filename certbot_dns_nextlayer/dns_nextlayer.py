@@ -63,7 +63,7 @@ class Authenticator(dns_common.DNSAuthenticator):
             zone = ".".join(ext[-2:])
             return {"domain": zone, "validation_name": validation_name}
         elif self.conf("method") == "remove-first":
-            ext = tldextract.extract(domain)
+            ext = domain.split(".")
             zone = ".".join(ext[1:])
             return {"domain": zone, "validation_name": validation_name}
         elif self.conf("method") == "none":
