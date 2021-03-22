@@ -67,6 +67,10 @@ class Authenticator(dns_common.DNSAuthenticator):
             return {"domain": zone, "validation_name": validation_name}
         elif self.conf("resolve-method") == "none":
             return {"domain": domain, "validation_name": validation_name}
+        else:
+            ext = tldextract.extract(domain)
+            zone = ".".join(ext[-2:])
+            return {"domain": zone, "validation_name": validation_name}
 
     def _get_nldns_client(self):
         return _NLDNSLexiconClient(token=self.credentials.conf("token"))
