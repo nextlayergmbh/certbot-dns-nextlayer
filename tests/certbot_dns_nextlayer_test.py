@@ -25,7 +25,9 @@ class AuthenticatorTest(
         dns_test_common.write({"nextlayer_token": TOKEN}, path)
 
         self.config = mock.MagicMock(
-            nextlayer_credentials=path, nextlayer_propagation_seconds=0
+            nextlayer_credentials=path,
+            nextlayer_propagation_seconds=0,
+            nextlayer_method="intelligent",
         )  # don't wait during tests
 
         self.auth = Authenticator(self.config, "nextlayer")
