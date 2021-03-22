@@ -65,24 +65,30 @@ This is the default method.
 It tries to determine the zone intelligently by extracting the TLD and re-adding the first level.
 
 ##### Examples:
+```
 * dns.nextlayer.at: nextlayer.at
 * dns.nextlayer.co.at: nextlayer.co.at
 * www.dns.nextlayer.co.at: nextlayer.co.at
+```
 
 #### `remove-first`
 
 This method just removes the first level of the requested domain.
 
 ##### Examples:
+```
 * dns.nextlayer.at: nextlayer.at
 * dns.nextlayer.co.at: nextlayer.co.at
 * www.dns.nextlayer.co.at: dns.nextlayer.co.at
+```
 
 #### `none`
 
 This method does what it's called. No magic.
 
 ##### Examples:
+```
 * dns.nextlayer.at: dns.nextlayer.at
 * dns.nextlayer.co.at: dns.nextlayer.co.at
 * www.dns.nextlayer.co.at: www.dns.nextlayer.co.at
+```
