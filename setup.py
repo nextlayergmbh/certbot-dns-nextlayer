@@ -3,7 +3,7 @@ from os import path
 
 from setuptools import find_packages, setup
 
-version = "1.0.0"
+version = "1.1.0"
 
 with open("README.md") as f:
     long_description = f.read()

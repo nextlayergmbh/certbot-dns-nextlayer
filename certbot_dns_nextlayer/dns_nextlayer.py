@@ -36,6 +36,11 @@ class Authenticator(dns_common.DNSAuthenticator):
             add, default_propagation_seconds=60
         )
         add("credentials", help="nextlayer dns credentials ini file.")
+        add(
+            "resolve-method",
+            help="Determines how we should resolve the parent zone of the domain. See documentation for further informations.",
+            default="intelligent",
+        )
 
     def more_info(self):
         return """
@@ -52,9 +57,16 @@ class Authenticator(dns_common.DNSAuthenticator):
         )
 
     def _extract_domain(self, domain, validation_name):
-        ext = tldextract.extract(domain)
-        zone = ".".join(ext[-2:])
-        return {"domain": zone, "validation_name": validation_name}
+        if self.conf("resolve-method") == "intelligent":
+            ext = tldextract.extract(domain)
+            zone = ".".join(ext[-2:])
+            return {"domain": zone, "validation_name": validation_name}
+        elif self.conf("resolve-method") == "remove-first":
+            ext = tldextract.extract(domain)
+            zone = ".".join(ext[1:])
+            return {"domain": zone, "validation_name": validation_name}
+        elif self.conf("resolve-method") == "none":
+            return {"domain": domain, "validation_name": validation_name}
 
     def _get_nldns_client(self):
         return _NLDNSLexiconClient(token=self.credentials.conf("token"))

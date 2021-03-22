@@ -49,7 +49,40 @@ dns_nextlayer_token=put_your_token_here
 Usage
 -----
 
+### Example command
 
 ```
 certbot certonly --authenticator dns-nextlayer --dns-nextlayer-credentials=~/nldns-credentials.ini -d nextlayer.at
 ```
+
+### Zone detection method
+
+We've added the configuration parameter `--dns-nextlayer-resolve-method` to select the way our certbot plugin determines the correct zone to add the record to. Currently there are 3 options you can choose from.
+
+#### `intelligent`
+
+This is the default method.  
+It tries to determine the zone intelligently by extracting the TLD and re-adding the first level.
+
+##### Examples:
+* dns.nextlayer.at: nextlayer.at
+* dns.nextlayer.co.at: nextlayer.co.at
+* www.dns.nextlayer.co.at: nextlayer.co.at
+
+#### `remove-first`
+
+This method just removes the first level of the requested domain.
+
+##### Examples:
+* dns.nextlayer.at: nextlayer.at
+* dns.nextlayer.co.at: nextlayer.co.at
+* www.dns.nextlayer.co.at: dns.nextlayer.co.at
+
+#### `none`
+
+This method does what it's called. No magic.
+
+##### Examples:
+* dns.nextlayer.at: dns.nextlayer.at
+* dns.nextlayer.co.at: dns.nextlayer.co.at
+* www.dns.nextlayer.co.at: www.dns.nextlayer.co.at
